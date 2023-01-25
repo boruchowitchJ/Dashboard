@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel='stylesheet' type='text/css'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function reload(){
+            location.reload();
+        }
+        window.onload=setInterval(reload,60000);
+
+
+    </script>
+</head>
+
+<body>
+
+    <div id="large-header" class="large-header">
+        <canvas class="canvas" id="demo-canvas"></canvas>
+        <div class="messagedefilant">
+            <div data-text="Hi JennifeR ! QuE PuiS Je FairE PouR Toi ?"><span>Hi JennifeR ! QuE PuiS Je FairE PouR Toi ?</span></div>
+          </div>
+        <div class="all">
+            <div class="weatherBloc">
+                <div class="weatherleft">
+                    <div class="timeInfos">
+                        <h2 id="time"></h2>
+                        <h2 id="day">thuesday</h2>
+                        <h2 id="date"></h2>
+                    </div>
+
+                    <div class="weather">
+                        <h2 id="temp">
+                            <%=temperatureNoonIndex%> °C
+                        </h2>
+                        <h2 id="airQTitle">Qualite de l air</h2>
+                        <h2 id="airQNb">
+                            <%=airQualityI%>
+                                <%=airUnityI%>
+                        </h2>
+
+                    </div>
+                </div>
+
+
+                <div class="imgDay">
+
+                    <div class="testFlex">                  
+                     
+
+                        <img src="./images/imgdd.png " alt="">
+               
+                
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="actus">
+                <div class="bourse">
+                    <h2>Latest news</h2>
+                    <table>
+                        <%for(let i=0; i < 10; i++){ %>
+                            <tr>
+                                <td><img src="<%= items[i]['media:content'][0].$.url %>" alt="" width="100px"
+                                        height="auto"></a></td>
+                                <td> <a target="_blank" href="<%= items[i].link[0] %>">
+                                        <%=items[i].title[0] %>
+                                            <%= items[i].description[0] %>
+                                    </a> </td>
+                            </tr>
+                            <% }; %>
+                    </table>
+
+                </div>
+
+                <div class="allTrains">
+                    <h2>Gand St pierre</h2>
+                    <table class="table">
+                        <th>Gare de depart </th>
+                        <th>Heure de depart</th>
+                        <th>Voie </th>
+                        <% iRail.forEach(function(departure) { %>
+                            <tr>
+                                <td>
+                                    <%= departure.stationinfo.name %>
+                                <td>
+                                    <%= String(new Date(departure.time*1000).getHours()).padStart(2,"0") %>:<%= String(new Date(departure.time*1000).getMinutes()).padStart(2,"0") %>
+                                </td>
+                                <td>
+                                    <%= departure.platform %>
+                                </td>
+                            </tr>
+                            <% }); %>
+
+                    </table>
+                </div>
+                <div class="rates">
+                    <h2>Rates</h2>
+
+                    <table class="table">
+                        <th>Monnaie </th>
+                        <th>Code</th>
+                        <th>Taux</th>
+                        <th>Date</th>
+                        <tr>
+                            <td > 🇪🇺
+                                <%= FloatRatesI.usd.name %>
+                            </td>
+                            <td >
+                                <%= FloatRatesI.usd.code %>
+                            </td>
+                            <td >
+                                <%=FloatRatesI.usd.rate.toFixed(2)%>€
+                            </td>
+                            <td>
+                                <%= new Date(FloatRatesI.usd.date).toLocaleDateString("fr-BE")%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >🇪🇺 Euro</td>
+                            <td >(EUR)</td>
+                            <td >0.94861</td>
+                            <td > </td>
+                        </tr>
+                        <tr>
+                            <td > 🇯🇵 Japanese Yen</td>
+                            <td >(JPY)</td>
+                            <td >143.07</td>
+                            <td > </td>
+                        </tr>
+                        <tr>
+                            <td > 💷 Pound sterling</td>
+                            <td >(GBP)</td>
+                            <td >0.86085</td>
+                            <td > </td>
+                        </tr>
+                        <tr>
+                            <td > 🇨🇦 Canada</td>
+                            <td >(CAD)</td>
+                            <td >0,9530</td>
+                            <td > </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js'></script>
+    <script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/rAF.js'></script>
+    <script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js'></script>
+ 
+
+    <script src="/scripts/script.js"></script>
+</body>
+
+</html>

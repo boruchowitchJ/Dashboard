@@ -1,0 +1,400 @@
+ @font-face {
+    font-family: 'GoogleSans';
+    src: url("../font/Apercu\ Pro\ Light.otf");
+}
+@font-face {
+    font-family: 'astro';
+    src: url("../font/Astroo.ttf");
+}
+@font-face {
+    font-family: 'sfUpright';
+    src: url("../font/SFOuterLimitsExtUpright.ttf");
+}
+@font-face {
+    font-family: 'latoLight';
+    src: url("../font/Lato-Light.ttf");
+}
+
+@font-face {
+    font-family: 'attentica';
+    src: url("../font/Attentica\ 4F\ UltraLight.ttf");
+}
+
+
+
+*{
+    box-sizing: border-box;
+}
+body {
+     height: 100vh;
+    margin:0;
+    text-decoration: none;
+    color: rgb(255, 254, 254);
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+
+}
+
+/* Texte défilant */
+.messagedefilant {
+    display: block;
+    margin: 30px auto;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    width: 92%;
+    max-width: 2143px;
+    height: 45px;
+  }
+   
+  .messagedefilant div {
+    position: absolute;
+    min-width: 100%;
+   
+
+  }
+   
+  .messagedefilant div span, 
+  .messagedefilant div:after {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    font-family: "sfUpright";
+    white-space: nowrap;
+    top:0;
+  }
+   
+  .messagedefilant div span {
+    animation: defilement 10s infinite linear;
+  }
+   
+  .messagedefilant div:after {
+    position: absolute;
+    top:0; left:0;
+    content:attr(data-text);
+    animation: defilement2 10s infinite linear;
+  }
+   
+  @keyframes defilement {
+    0% { margin-left: 0; }
+    100% { margin-left: -100%; }
+  }
+   
+  @keyframes defilement2 {
+    0% { margin-left: 100%; }
+    100% { margin-left: 0%; }
+  }
+
+a {
+    text-decoration: none;
+    color: rgb(255, 254, 254);
+}
+
+.weatherBloc {
+
+    width: 80%;
+    height: 39vh;
+    margin-left: 8%;
+    
+}
+
+.weatherBloc,
+.weatherleft,
+.actus {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 4vh;
+    
+}
+
+@media(max-width:768px) {
+
+    .weatherBloc,
+    .weatherleft,
+    .actus {
+        flex-direction: column;
+    }
+
+    .timeInfos,
+    .weather {
+        width: 50vw;
+    }
+
+    .imgDay img {
+        width: 100vw;
+    }
+}
+.actus{  
+    background-color:  rgba(255, 255, 255, 0.086);
+    padding: 50px;
+    border-radius: 20px;
+    margin-left: 8%;
+    justify-content:space-around ;
+    width: 80%;
+    height: 39vh;
+          
+   
+  }
+  .actus h2{    
+    font-family: "astro";
+    font-size:1.8rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+.weatherleft {
+    
+    background-color: rgba(255, 255, 255, 0.086);
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 3.9vh;
+    align-items: center;
+    font-family: 'astro';
+    
+}
+ 
+
+.timeInfos,
+.weather {
+    width: 237px;
+    height: 259px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.208);
+    border-radius: 20px;
+    margin-right: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border: solid 1px white;
+  
+}
+
+#time {
+    font-size: 1.8rem;
+    font-family: "sFUPright";
+}
+
+#date {
+    font-size: 1rem;
+}
+
+#day {
+    
+    font-size: 1rem;
+}
+
+#temp {
+    font-size: 1.8rem;
+    
+    font-family: "sFUPright";
+}
+
+#airQTitle {
+    font-size: 1rem;
+}
+
+#airQNb {
+    font-size:1rem;
+}
+
+.imgDay {
+    background-color: rgba(255, 255, 255, 0.086);
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 3.9vh;
+    height: 31vh;
+    
+}
+
+.imgDay img {
+    width: 411px;
+  
+}
+
+.testFlex {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: justify;
+
+}
+
+.imgDay h2 {
+    font-size: 1.4rem;
+    margin: 0;
+    margin-top: 3px;
+    padding-bottom: 5px;
+
+    font-family: "penna";
+}
+
+
+@media (max-width:768px) {
+    .news{
+        width: 50vw;
+    }
+}
+
+.bourse {
+    border: solid 1px #4f416d;
+    background-color:rgba(255, 255, 255, 0.23);
+    border-radius: 20px;
+    width: 529px;
+    text-align: left;
+    font-size: 1rem;
+    height: 378px;
+    overflow: scroll;
+    overflow-x: scroll;
+    scroll-behavior: unset;
+    overflow-x: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'astro';
+}
+.bourse a {
+    font-size: 0.5rem;
+    border-bottom: 1px solid black;
+      border-bottom-color: black;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+    display: flex;
+    justify-content: center;
+}
+
+.bourse img {
+    width: 106px;
+    height: 57px;
+    margin-right: 10px;
+    justify-content: flex-start;
+    display: flex;
+}
+
+.bourse a:hover {
+    background-color: rgba(57, 55, 55, 0.315);
+}
+
+.allTrains {
+    border: solid 1px #4f416d;        
+    background-color: rgba(255, 255, 255, 0.23);
+    border-radius: 20px;   
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 20px;
+    height: 378px;
+    overflow: scroll;
+    overflow-x: scroll;
+    scroll-behavior: unset;
+    overflow-x: hidden;
+    font-family: 'astro';
+    font-size:12px;
+}
+
+.allTrains td {
+border: 1px solid black;
+border-color: black;
+border-style: solid;
+border-width: 1px;
+text-align: center;
+
+}
+
+
+
+  .allTrains {
+  scrollbar-color: #4f416d #e4e4e400;
+ 
+}
+.bourse{
+    scrollbar-color: #4f416d #e4e4e400;
+}
+.rates{
+    scrollbar-color: #4f416d #e4e4e400;
+}
+
+.rates {
+    border: solid 1px #4f416d;
+    border: solid 1px #4f416d;        
+    background-color: rgba(255, 255, 255, 0.23);
+    border-radius: 20px;   
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 20px;
+    height: 378px;
+    overflow: scroll;
+    overflow-x: scroll;
+    scroll-behavior: unset;
+    overflow-x: hidden;
+    font-family: 'astro';
+    font-size:12px;
+}  
+  
+.rates td{
+border: 1px solid black;
+border-color: black;
+border-style: solid;
+border-width: 1px;
+text-align: center;
+}
+
+
+.large-header {
+
+    width: 100%;
+    background: #333;    
+    background-size: cover;
+    background-position: center center;
+
+}
+
+#large-header {
+    background-image: url("../images/ic_2118.jpg");
+    background-size: cover;
+    
+    
+}
+
+.main-title {
+
+    margin: 0;
+    padding: 0;
+    color: #f9f1e9;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.demo-1 .main-title {
+    text-transform: uppercase;
+    font-size: 4.2em;
+    letter-spacing: 0.1em;
+}
+
+.main-title .thin {
+    font-weight: 200;
+}
+
+@media only screen and (max-width: 768px) {
+    .demo-1 .main-title {
+        font-size: 3em;
+    }
+}
+
+.all {
+    width: 85%;
+    
+    background-color:  #2822285a;
+    position: relative;
+    z-index: 999;
+    border: solid 1px white;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-left: 8%;
+    margin-bottom: 50px;
+}
+
+.canvas {
+    position: absolute;
+    z-index: 1;
+}
